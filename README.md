@@ -34,5 +34,11 @@ Navigate to folder where your `templates` are and run container:
 $ docker run --rm -v $(pwd):/opt/StaticJinjaPlus/data static-jinja-plus:[IMAGE_VERSION]
 ```
 As result, `build` folder with rendered files will be created near `templates` folder.
+
+Also it's possible to watch for files change in `templates` folder and re-render them in `build` folder.  
+For this, run container like:
+```sh
+$ docker run --rm -v $(pwd):/opt/StaticJinjaPlus/data static-jinja-plus:[IMAGE_VERSION] -w --srcpath=data/templates/ --outpath=data/build/
+```
 ## Project Goals
 The code is written for educational purposes on online-course for web-developers dvmn.org.
