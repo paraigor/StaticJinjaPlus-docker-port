@@ -1,0 +1,7 @@
+FROM python:3.12.8-slim
+WORKDIR /opt/StaticJinjaPlus
+ADD https://github.com/MrDave/StaticJinjaPlus.git /opt/StaticJinjaPlus
+RUN pip install --no-cache-dir -r requirements.txt
+ENTRYPOINT ["python3", "main.py"]
+CMD ["--srcpath=data/templates/", "--outpath=data/build/"]
+

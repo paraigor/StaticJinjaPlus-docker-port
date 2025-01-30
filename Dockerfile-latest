@@ -1,0 +1,12 @@
+FROM ubuntu:24.04
+RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
+    && DEBIAN_FRONTEND=noninteractive apt-get update \
+    && apt-get install -y -q --no-install-recommends \
+	python3.12 \
+	python3.12-venv \
+    && rm -r /var/lib/apt/lists/* /var/cache/*
+WORKDIR /opt/StaticJinjaPlus
+ADD https://github.com/MrDave/StaticJinjaPlus.git /opt/StaticJinjaPlus
+RUN python3.12 -m venv venv && venv/bin/pip install --no-cache-dir -r requirements.txt
+ENTRYPOINT ["venv/bin/python", "main.py"]
+CMD ["--srcpath=data/templates/", "--outpath=data/build/"]
