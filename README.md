@@ -29,10 +29,10 @@ $ docker build -t static-jinja-plus:0.1.0 -f Dockerfile-versioned . --build-arg 
 $ docker build -t static-jinja-plus:develop-slim -f Dockerfile-versioned-slim . --build-arg VERSION_URL=https://github.com/MrDave/StaticJinjaPlus/archive/e19f029cf633bf8d65ac3d330d60a58bd116005d.tar.gz --build-arg VERSION_HASH=[HASH]
 ```
 ## How to run
-Navigate to folder where your `Templates` are and run container:
+Navigate to folder where your `templates` are and run container:
 ```sh
 $ docker run --rm -v $(pwd):/opt/StaticJinjaPlus/data static-jinja-plus:[IMAGE_VERSION]
 ```
-As result, `build` folder with rendered files will be created near `Templates` folder.
+As result, `build` folder with rendered files will be created near `templates` folder.
 ## Project Goals
 The code is written for educational purposes on online-course for web-developers dvmn.org.
